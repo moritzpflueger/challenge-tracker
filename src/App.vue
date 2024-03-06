@@ -10,12 +10,6 @@
   </header>
 
   <main class="m-10">
-    <div class="">
-      <TapCounter />
-    </div>
+    <router-view />
   </main>
 </template>
-    
-<script setup lang="ts">
-  import TapCounter from './components/TapCounter.vue';
-</script>
