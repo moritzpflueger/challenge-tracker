@@ -1,5 +1,10 @@
 <template>
-  <router-link to="/new-counter">+ add new counter</router-link>
+  <div
+    v-if="counters.length === 0"
+    class="text-2xl flex items-center justify-center h-96"
+  >
+    Add a Counter to get started
+  </div>
   <div 
     v-for="counter in sortedCounters" 
     :key="counter.id" 

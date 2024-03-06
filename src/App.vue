@@ -1,15 +1,10 @@
 <template>
-  <header>
-    <img
-      alt="App logo"
-      class="mx-auto my-4"
-      src="./assets/logo.svg"
-      width="125"
-      height="125"
-    />
-  </header>
-
-  <main class="m-10">
+  <NavBar />
+  <main class="p-5">
     <router-view />
   </main>
 </template>
+
+<script setup lang="ts">
+import NavBar from '@/components/NavBar.vue';
+</script>
