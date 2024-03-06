@@ -5,29 +5,31 @@
   >
     Add a Counter to get started
   </div>
-  <div 
+  <button 
     v-for="counter in sortedCounters" 
     :key="counter.id" 
-    class="flex flex-col bg-neutral-100 my-5 p-10 relative"
+    @click="increment(counter)"
+    class="flex w-full flex-col items-center bg-neutral-900 text-neutral-200 my-5 p-10 relative"
     :class="{ 'bg-green-500 text-white': isFinished(counter) }"
   >
     <button className="absolute right-0 top-0 p-5 rounded-md text-2xl" @click="deleteCounter(counter.id)">x</button>
     <h1 class="text-xl mb-5">
       {{ counter.title }}
     </h1>
-    <p className="flex text-3xl justify-center">
-      <span className="font-bold mr-2">{{ counter.count }}</span>
+    <p className="flex flex-col text-2xl text-neutral-500 justify-center items-center my-20">
+      <span className="font-bold text-white text-8xl mr-2">
+        {{ counter.count }}
+      </span>
       of {{ counter.target }}
     </p>
-    <div class="bg-neutral-300 h-2 mb-5">
+    <div class="bg-neutral-800 h-2 mb-5 w-full">
       <div class="bg-green-500 h-full" :style="{ width: percentageOfCount(counter) + '%' }"></div>
     </div>
-    <p>{{ getDaysPassed(counter) }} of {{ getDurationInDays(counter)}} days passed</p>
-    <div class="bg-neutral-300 h-2">
+    <p class="self-start">{{ getDaysPassed(counter) }} of {{ getDurationInDays(counter)}} days passed</p>
+    <div class="bg-neutral-800 h-2 w-full">
       <div class="bg-green-500 h-full" :style="{ width: percentageOfDaysPassed(counter) + '%' }"></div>
     </div>
-    <button className="bg-teal-300 p-2 rounded-md mt-5" @click="increment(counter)">increment</button>
-  </div>
+  </button>
 </template>
 
 <script setup lang="ts">

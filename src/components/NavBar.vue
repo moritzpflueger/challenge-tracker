@@ -4,14 +4,11 @@
       to="/new-counter"
       class="bg-pink-500 text-white w-10 h-10 font-semibold rounded-full relative after:absolute after:content-['+'] after:text-xl after:flex after:w-10 after:h-10 after:items-center after:justify-center"
     ></router-link>
-    <router-link to="/">
-      <img
-        alt="App logo"
-        class=""
-        src="../assets/logo.svg"
-        width="42"
-        height="42"
-      />        
+    <router-link 
+      to="/"
+      class="text-5xl"
+    >
+      💪
     </router-link>
   </header>
 </template>
