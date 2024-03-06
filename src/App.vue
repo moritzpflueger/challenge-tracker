@@ -1,4 +1,3 @@
-
 <template>
   <header>
     <img
@@ -10,9 +9,9 @@
     />
   </header>
 
-  <main>
-    <div class="bg-red-500 text-3xl">
-      <TapCounter title="1000 Pushups in 2024" />
+  <main class="m-10">
+    <div class="">
+      <TapCounter />
     </div>
   </main>
 </template>
