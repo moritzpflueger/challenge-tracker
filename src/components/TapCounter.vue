@@ -8,9 +8,10 @@
   <div 
     v-for="counter in sortedCounters" 
     :key="counter.id" 
-    class="flex flex-col bg-neutral-100 my-5 p-10"
+    class="flex flex-col bg-neutral-100 my-5 p-10 relative"
     :class="{ 'bg-green-500 text-white': isFinished(counter) }"
   >
+    <button className="absolute right-0 top-0 p-5 rounded-md text-2xl" @click="deleteCounter(counter.id)">x</button>
     <h1 class="text-xl mb-5">
       {{ counter.title }}
     </h1>
@@ -54,6 +55,10 @@ const percentageOfDaysPassed = (counter: any) => {
 
 const increment = (counter: any) => {
   store.increment(counter);
+};
+
+const deleteCounter = (id: string) => {
+  store.deleteCounter(id);
 };
 
 const isFinished = (counter: any) => counter.count >= counter.target;

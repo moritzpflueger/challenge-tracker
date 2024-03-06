@@ -38,9 +38,14 @@ export const useCounterStore = defineStore('counter', () => {
     persistToLocalStorage()
   }
 
+  const deleteCounter = (id: string) => {
+    counters.value = counters.value.filter((counter) => counter.id !== id)
+    persistToLocalStorage()
+  }
+
   const persistToLocalStorage = () => {
     localStorage.setItem('counters', JSON.stringify(counters.value))
   }
 
-  return { counters, increment, updateCount, addCounter }
+  return { counters, increment, updateCount, addCounter, deleteCounter }
 })
