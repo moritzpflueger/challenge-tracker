@@ -19,7 +19,7 @@
         Start Date
       </label>
       <input v-model="newCounter.startDate" type="date" class="bg-neutral-800 p-2 rounded-md"/>
-      <button className="bg-neutral-200 text-neutral-900 font-semibold p-2 rounded-md mt-10 relative" @click="addCounter">
+      <button class="bg-neutral-200 text-neutral-900 font-semibold p-2 rounded-md mt-10 relative" @click="addCounter">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-6 h-6 absolute left-3 top-0 bottom-0 m-auto">
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
         </svg>        
