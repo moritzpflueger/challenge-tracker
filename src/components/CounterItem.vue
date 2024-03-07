@@ -1,8 +1,8 @@
 <template>
   <div 
     ref="counterRef"
-    class="flex w-full flex-col items-center justify-center bg-neutral-900 text-neutral-200 p-10 relative"
-    :class="{ 'bg-green-800 ': isFinished(counter) }"
+    class="flex w-full flex-col items-center justify-center text-neutral-200 p-10 relative rounded-xl"
+    :class="[isFinished(counter) ? 'bg-green-800 ': 'bg-neutral-900']"
   >
     <ButtonDelete 
       @delete="$emit('delete', counter.id)"
