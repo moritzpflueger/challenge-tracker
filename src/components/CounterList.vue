@@ -9,14 +9,14 @@
   <swiper-container
     @swiper="console.log('swiper')"
     ref="swiperRef" 
-    class="h-full"
+    class="h-full select-none"
     :effect="'coverflow'" 
     :pagination="true"
   >
     <swiper-slide
       v-for="counter in sortedCounters" 
       :key="counter.id" 
-      class="flex p-5"
+      class="flex p-5 select-none"
     >
     <CounterItem 
       v-if="counter"
