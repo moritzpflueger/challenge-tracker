@@ -1,6 +1,6 @@
 <template>
   <NavBar />
-  <main class="p-5">
+  <main class="flex-1">
     <router-view />
   </main>
 </template>

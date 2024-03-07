@@ -1,21 +1,31 @@
 <template>
-  <div class="flex flex-col">
-    <label>
-      Title:
-      <input v-model="newCounter.title" type="text" placeholder="New Counter" />
-    </label>
-    <label>Target:
-      <input v-model="newCounter.target" type="number" />
-    </label>
-    <label>
-      Target Date:
-      <input v-model="newCounter.targetDate" type="date" />
-    </label>
-    <label>
-      Start Date:
-      <input v-model="newCounter.startDate" type="date" />
-    </label>
-    <button className="bg-pink-300 p-2 rounded-md m-1" @click="addCounter">add counter</button>    
+  <div class="h-full flex justify-center items-center text-neutral-400">
+    <form class="flex flex-col gap-3 w-full max-w-2xl mx-10">
+      <label for="title">
+        Title
+      </label>
+      <input 
+        id="title" 
+        v-model="newCounter.title" 
+        type="text" 
+        placeholder="New Counter"
+        class="bg-neutral-800 p-2 rounded-md"
+      />
+      <label for="target">Target</label>
+      <input id="target" v-model="newCounter.target" type="number" class="bg-neutral-800 p-2 rounded-md"/>
+      <label for="targetDate">Target Date</label>
+      <input id="targetDate" v-model="newCounter.targetDate" type="date" class="bg-neutral-800 p-2 rounded-md" />
+      <label>
+        Start Date
+      </label>
+      <input v-model="newCounter.startDate" type="date" class="bg-neutral-800 p-2 rounded-md"/>
+      <button className="bg-neutral-200 text-neutral-900 font-semibold p-2 rounded-md mt-10 relative" @click="addCounter">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-6 h-6 absolute left-3 top-0 bottom-0 m-auto">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+        </svg>        
+        Create Counter
+      </button>          
+    </form>
   </div>  
 </template>
 
@@ -32,7 +42,7 @@ const getDefaultNewCounterValues = () => ({
   title: '',
   count: 0,
   target: 0,
-  targetDate: new Date().toISOString().slice(0, 10),
+  targetDate: null,
   startDate: new Date().toISOString().slice(0, 10),
   finishingDate: null,
 });

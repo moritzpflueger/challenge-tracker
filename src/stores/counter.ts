@@ -1,15 +1,6 @@
 import { ref } from "vue";
 import { defineStore } from "pinia";
-
-export interface Counter {
-  id: string,
-  title: string,
-  count: number,
-  target: number,
-  targetDate: string,
-  startDate: string,
-  finishingDate: string | null,
-}
+import type { Counter } from "@/types";
 
 export const useCounterStore = defineStore('counter', () => {
   const counters = ref([] as Counter[])
@@ -19,8 +10,6 @@ export const useCounterStore = defineStore('counter', () => {
     console.error('Error parsing counters from localStorage:', error);
     counters.value = []; // Default to an empty array if parsing fails    
   }
-  
-  console.log('counters', counters.value)
   
   const increment = (counter: Counter, customStep = false) => {
     if (counter.count >= counter.target) return

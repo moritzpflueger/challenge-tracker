@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --swiper-pagination-color: #aaa;
+  --swiper-pagination-bullet-inactive-color: white;
+  --swiper-pagination-bottom: 30px;
+}
+
 body {
   @apply bg-neutral-950 bg-noise;
 }

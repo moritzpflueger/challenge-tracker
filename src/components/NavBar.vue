@@ -1,14 +1,18 @@
 <template>
-  <header class="flex justify-between items-center p-5">
+  <header class="flex justify-between items-center p-5 pb-0">
     <router-link 
       to="/new-counter"
-      class="bg-pink-500 text-white w-10 h-10 font-semibold rounded-full relative after:absolute after:content-['+'] after:text-xl after:flex after:w-10 after:h-10 after:items-center after:justify-center"
-    ></router-link>
+      class="bg-neutral-800 text-neutral-400 w-12 h-12 font-semibold rounded-xl flex justify-center items-center"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+      </svg>
+    </router-link>
     <router-link 
       to="/"
-      class="text-5xl"
+      class="text-4xl w-12 h-12 flex justify-center items-center text-neutral-400"
     >
-      💪
+      💯
     </router-link>
   </header>
 </template>

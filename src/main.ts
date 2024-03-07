@@ -6,10 +6,10 @@ import { createRouter, createWebHistory } from "vue-router";
 import * as VueRouter from "vue-router";
 import App from "./App.vue";
 import NewCounter from "./components/NewCounter.vue";
-import TapCounter from "./components/TapCounter.vue";
+import CounterList from "./components/CounterList.vue";
 
 const routes: VueRouter.RouteRecordRaw[] = [
-  { path: "/", component: TapCounter },
+  { path: "/", component: CounterList },
   { path: "/new-counter", component: NewCounter },
 ];
 
