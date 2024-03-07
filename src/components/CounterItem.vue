@@ -50,7 +50,7 @@
     if (element) {
       let hammertime = new Hammer(element);
       hammertime.get('swipe').set({ direction: DIRECTION_ALL });
-      hammertime.get('press').set({ time: 500 });
+      hammertime.get('press').set({ time: 400 });
 
       hammertime.on('tap', (event: any) => {
         if (event.target.closest('.delete-button')) return
