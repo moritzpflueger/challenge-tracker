@@ -4,17 +4,26 @@
     class="flex w-full flex-col items-center justify-center bg-neutral-900 text-neutral-200 p-10 relative"
     :class="{ 'bg-green-800 ': isFinished(counter) }"
   >
-    <ButtonDelete @delete="$emit('delete', counter.id)"/>
+    <ButtonDelete 
+      @delete="$emit('delete', counter.id)"
+      :isFinished="isFinished(counter)"
+    />
     <h1 class="text-xl mb-5">
-      {{ counter.title }}
+      {{ isFinished(counter) ? '🎉🎉🎉' : counter.title }}
     </h1>
-    <p className="flex flex-col font-bold text-white text-8xl justify-center items-center my-10">
+    <p class="flex flex-col font-bold text-white text-8xl justify-center items-center my-10">
       {{ counter.count }}
-      <span className="text-2xl font-normal text-neutral-500">
+      <span 
+        v-if="!isFinished(counter)"
+        class="text-2xl font-normal text-neutral-500"
+      >
         {{ counter.target }}
       </span>
     </p>
-    <ProgressBar :counter="counter" />
+    <ProgressBar 
+      v-if="!isFinished(counter)"
+      :counter="counter" 
+    />
   </div>
 </template>
 
