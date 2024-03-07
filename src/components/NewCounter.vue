@@ -42,7 +42,7 @@ const getDefaultNewCounterValues = () => ({
   title: '',
   count: 0,
   target: 0,
-  targetDate: null,
+  targetDate: '',
   startDate: new Date().toISOString().slice(0, 10),
   finishingDate: null,
 });
