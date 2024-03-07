@@ -53,9 +53,13 @@
 
       hammertime.on('tap', (event: any) => {
         if (event.target.closest('.delete-button')) return
+        event.preventDefault()
         store.increment(props.counter)
       });
-      hammertime.on('press', () => store.increment(props.counter, true));
+      hammertime.on('press', (event) => {
+        event.preventDefault()
+        store.increment(props.counter, true)
+      });
       hammertime.on('swipedown', () => store.decrement(props.counter));
       hammertime.on('swipeup', () => store.increment(props.counter));
       hammerInstances.value.push(hammertime);
