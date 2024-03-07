@@ -8,7 +8,7 @@
   <button 
     v-for="counter in sortedCounters" 
     :key="counter.id" 
-    @click="increment(counter)"
+    :id="counter.id"
     class="flex w-full flex-col items-center bg-neutral-900 text-neutral-200 my-5 p-10 relative"
     :class="{ 'bg-green-500 text-white': isFinished(counter) }"
   >
@@ -33,8 +33,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, onMounted, onUnmounted } from 'vue';
 import { useCounterStore } from '@/stores/counter';
+import Hammer, { DIRECTION_ALL } from 'hammerjs';
 
 defineProps<{
   title?: string;
@@ -55,9 +56,24 @@ const percentageOfDaysPassed = (counter: any) => {
   return (getDaysPassed(counter) / getDurationInDays(counter)) * 100;
 };
 
-const increment = (counter: any) => {
-  store.increment(counter);
-};
+onMounted(() => {
+  counters.value.forEach((counter: any) => {
+    let hammertime = new Hammer(document.getElementById(counter.id));
+    hammertime.get('swipe').set({ direction: DIRECTION_ALL });
+    
+    hammertime.on('tap', () => store.increment(counter));
+    hammertime.on('press', () => store.increment(counter, true));
+    hammertime.on('swipedown', () => store.decrement(counter));
+    hammertime.on('swipeup', () => store.increment(counter));
+  });
+});
+
+onUnmounted(() => {
+  hammertime.off('tap');
+  hammertime.off('press');
+  hammertime.off('swipedown');
+  hammertime.off('swipeup');
+});
 
 const deleteCounter = (id: string) => {
   store.deleteCounter(id);

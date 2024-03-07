@@ -22,9 +22,15 @@ export const useCounterStore = defineStore('counter', () => {
   
   console.log('counters', counters.value)
   
-  const increment = (counter: Counter) => {
+  const increment = (counter: Counter, customStep = false) => {
     if (counter.count >= counter.target) return
-    counter.count++
+    customStep ? counter.count += 5 : counter.count++
+    persistToLocalStorage()
+  }
+
+  const decrement = (counter: Counter, customStep = false) => {
+    if (counter.count <= 0) return
+    customStep ? counter.count -= 5 : counter.count--
     persistToLocalStorage()
   }
   
@@ -47,5 +53,5 @@ export const useCounterStore = defineStore('counter', () => {
     localStorage.setItem('counters', JSON.stringify(counters.value))
   }
 
-  return { counters, increment, updateCount, addCounter, deleteCounter }
+  return { counters, increment, decrement, updateCount, addCounter, deleteCounter }
 })
