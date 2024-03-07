@@ -9,6 +9,8 @@
 }
 
 /* Disable text selection globally */
+html,
+body,
 *,
 *::before,
 *::after {
