@@ -1,5 +1,5 @@
 <template>
-  <header class="flex justify-between items-center p-5 pb-0">
+  <header class="flex justify-between items-center p-5 pb-0 select-none">
     <router-link 
       to="/new-counter"
       class="bg-neutral-800 text-neutral-400 w-12 h-12 font-semibold rounded-xl flex justify-center items-center"
