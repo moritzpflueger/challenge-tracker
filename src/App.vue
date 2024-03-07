@@ -1,6 +1,6 @@
 <template>
   <NavBar />
-  <main class="flex-1 select-none">
+  <main class="flex-1">
     <router-view />
   </main>
 </template>
