@@ -12,7 +12,7 @@
       to="/"
       class="text-4xl w-12 h-12 flex justify-center items-center text-neutral-400"
     >
-      💯
+      <img src="/android-chrome-192x192.png" class="w-10 h-10" />
     </router-link>
   </header>
 </template>
