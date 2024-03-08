@@ -29,7 +29,7 @@ defineProps<{
 }>();
 
 const percentageOfCount = (counter: Counter) => {
-  return (counter.count / counter.target) * 100;
+  return (counter.count / (counter.target ?? 0) ) * 100;
 };
 
 const percentageOfDaysPassed = (counter: Counter) => {

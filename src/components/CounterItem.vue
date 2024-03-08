@@ -43,7 +43,7 @@
   const hammerInstances = ref<HammerManager[]>([]);
   const counterRef = ref(null)
 
-  const isFinished = (counter: Counter) => counter.count >= counter.target;
+  const isFinished = (counter: Counter) => counter.count >= (counter.target ?? 0);
 
   onMounted(() => {
     let element = counterRef.value;
