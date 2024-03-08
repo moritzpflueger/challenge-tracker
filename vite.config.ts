@@ -14,7 +14,7 @@ export default defineConfig({
       },
       manifest: {
         name: 'Challenge Counter',
-        short_name: 'Counter',
+        short_name: 'Challenge Counter',
         theme_color: '#000',
         background_color: '#000',
         icons: [
