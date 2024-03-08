@@ -7,6 +7,7 @@
   </div>
 
   <swiper-container
+    v-if="counters.length > 0"
     @swiper="console.log('swiper')"
     ref="swiperRef" 
     class="h-full"
