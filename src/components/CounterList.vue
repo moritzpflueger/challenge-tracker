@@ -1,8 +1,12 @@
 <template>
   <div
     v-if="counters.length === 0"
-    class="text-lg text-neutral-600 flex items-center justify-center h-full p-20 text-center"
+    class="text-xl text-neutral-600 flex flex-col items-center justify-center h-full p-20 pb-40 text-center"
   >
+    <img 
+      src="/android-chrome-192x192.png" 
+      class="grayscale w-20 h-20 mb-10"
+    />
     Add your first Counter to get started!
   </div>
 
