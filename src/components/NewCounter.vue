@@ -1,18 +1,18 @@
 <template>
   <div class="h-full flex justify-center items-center text-neutral-400">
     <form class="flex flex-col gap-3 w-full max-w-2xl mx-10">
-      <label for="title">
-        Title
+      <label for="name">
+        Name
       </label>
       <input 
-        id="title" 
+        id="name" 
         v-model="newCounter.title" 
         type="text" 
-        placeholder="New Counter"
+        placeholder="My Awesome Counter..."
         class="bg-neutral-800 p-2 rounded-md"
       />
-      <label for="target">Target</label>
-      <input id="target" v-model="newCounter.target" type="number" class="bg-neutral-800 p-2 rounded-md"/>
+      <label for="target">Target Number</label>
+      <input id="target" v-model="newCounter.target" type="number" placeholder="0" class="bg-neutral-800 p-2 rounded-md"/>
       <label for="targetDate">Target Date</label>
       <input id="targetDate" v-model="newCounter.targetDate" type="date" class="bg-neutral-800 p-2 rounded-md" />
       <label>
@@ -41,7 +41,7 @@ const getDefaultNewCounterValues = () => ({
   id: '', // Since ID is now generated in addCounter, this can be initially empty or removed
   title: '',
   count: 0,
-  target: 0,
+  target: null,
   targetDate: '',
   startDate: new Date().toISOString().slice(0, 10),
   finishingDate: null,
