@@ -13,8 +13,8 @@ export default defineConfig({
         enabled: true
       },
       manifest: {
-        name: 'Challenge Counter',
-        short_name: 'Challenge Counter',
+        name: 'Progress Hunter',
+        short_name: 'Progress Hunter',
         theme_color: '#000',
         background_color: '#000',
         icons: [
