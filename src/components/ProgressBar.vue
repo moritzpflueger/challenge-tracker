@@ -19,6 +19,12 @@
       }">
     </div>
   </div>  
+  <p 
+    class="text-neutral-500"
+    :class="getStatus(counter).class"
+  >
+    {{ getStatus(counter).text }}
+  </p>
 </template>
 
 <script setup lang="ts">
@@ -49,5 +55,25 @@ const getDaysPassed = (counter: Counter) => {
   const millisecondsPerDay = 24 * 60 * 60 * 1000;
   const daysPassed = Math.floor((currentDate.getTime() - startOfChallenge.getTime()) / millisecondsPerDay);
   return daysPassed;
+};
+
+const getStatus = (counter: Counter) => {
+  // If the counter's start date is today
+  if (counter.startDate === new Date().toISOString().slice(0, 10)) {
+    return {
+      text: 'Enjoy the Journey 🚀'
+    };
+  }
+  if (percentageOfCount(counter) >= percentageOfDaysPassed(counter)) {
+    return {
+      text: "You're on Track ✓",
+      class: 'text-green-700',
+    };
+  } else {
+    return {
+      text: "⌁ You're Falling Behind ⌁",
+      class: 'text-red-800',
+    };
+  }
 };
 </script>
