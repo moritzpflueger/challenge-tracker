@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-neutral-800 h-2 mb-5 w-full relative rounded-md overflow-hidden"
+    class="bg-neutral-800 h-8 mb-5 w-full relative rounded-md overflow-hidden"
   >
     <div
       class="bg-neutral-200 rounded-md z-10 absolute h-full"
@@ -22,9 +22,6 @@
       }"
     ></div>
   </div>
-  <p class="text-neutral-500" :class="getStatus(counter).class">
-    {{ getStatus(counter).text }}
-  </p>
 </template>
 
 <script setup lang="ts">
