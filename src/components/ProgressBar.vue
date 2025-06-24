@@ -3,23 +3,9 @@
     class="bg-neutral-800 h-8 mb-5 w-full relative rounded-md overflow-hidden"
   >
     <div
-      class="bg-neutral-200 rounded-md z-10 absolute h-full"
+      class="z-10 absolute h-full"
+      :class="getStatus(counter).class"
       :style="{ width: percentageOfCount(counter) + '%' }"
-    ></div>
-    <div
-      class="bg-red-500 h-full z-0 absolute rounded-md"
-      :style="{
-        width: percentageOfDaysPassed(counter) + '%',
-        left: 0,
-      }"
-    ></div>
-    <div
-      class="bg-green-500 h-full z-20 absolute rounded-r-md"
-      :style="{
-        width:
-          percentageOfCount(counter) - percentageOfDaysPassed(counter) + '%',
-        left: percentageOfDaysPassed(counter) + '%',
-      }"
     ></div>
   </div>
 </template>
@@ -68,12 +54,12 @@ const getStatus = (counter: Counter) => {
   if (percentageOfCount(counter) >= percentageOfDaysPassed(counter)) {
     return {
       text: "You're on Track ✓",
-      class: "text-green-700",
+      class: "bg-green-500",
     };
   } else {
     return {
       text: "⌁ You're Falling Behind ⌁",
-      class: "text-red-800",
+      class: "bg-red-500",
     };
   }
 };
