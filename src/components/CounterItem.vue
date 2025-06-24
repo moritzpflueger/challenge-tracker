@@ -74,12 +74,10 @@ const getDelta = (counter: Counter) => {
   const expectedProgress = ((counter.target ?? 0) * daysPassed) / totalDays;
   const delta = counter.count - expectedProgress;
 
-  if (Math.abs(delta) < 10) {
-    return `<span class="font-semibold text-neutral-500">✅ on track</span>`;
-  } else if (delta > 0) {
-    return `<span class="font-semibold text-green-500">▲ ${Math.abs(Math.round(delta))}</span> above goal`;
+  if (Math.round(delta) >= 0) {
+    return `<span class="font-semibold text-green-500">⏶ ${Math.abs(Math.round(delta))}</span> above goal`;
   } else {
-    return `<span class="font-semibold text-red-500">▼ ${Math.abs(Math.round(delta))}</span> behind goal`;
+    return `<span class="font-semibold text-red-500">⏷ ${Math.abs(Math.round(delta))}</span> behind goal`;
   }
 };
 
