@@ -1,7 +1,7 @@
 <template>
   <div
     ref="counterRef"
-    class="flex w-full flex-col items-center justify-between text-neutral-200 p-4 lg:p-64 relative rounded-xl"
+    class="flex w-full flex-col items-center justify-between text-neutral-200 p-4 pb-14 lg:p-64 relative rounded-xl"
     :class="[isFinished(counter) ? 'bg-green-800 ' : '']"
   >
     <ButtonDelete
