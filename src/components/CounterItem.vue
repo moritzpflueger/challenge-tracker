@@ -17,13 +17,13 @@
       {{ counter.count }}
     </p>
     <ProgressBar v-if="!isFinished(counter)" :counter="counter" />
-    <div class="flex flex-wrap gap-3 mt-8 text-xl font-normal text-neutral-500">
+    <div class="flex flex-wrap gap-3 mt-8 text-xl font-normal text-neutral-300">
       <span
         v-if="!isFinished(counter)"
         class="bg-neutral-800 p-2 rounded-full px-4"
       >
         🎯
-        <span class="font-medium text-neutral-300">{{ counter.target }}</span>
+        <span class="font-semibold">{{ counter.target }}</span>
       </span>
 
       <span
@@ -31,10 +31,7 @@
         class="bg-neutral-800 p-2 rounded-full px-4"
       >
         ⛳️
-        <span class="font-medium text-neutral-300"
-          >{{ getDaysLeft(counter) }}d</span
-        >
-        left
+        <span class="font-semibold">{{ getDaysLeft(counter) }}d</span> left
       </span>
 
       <span
@@ -78,11 +75,11 @@ const getDelta = (counter: Counter) => {
   const delta = counter.count - expectedProgress;
 
   if (Math.abs(delta) < 10) {
-    return `<span class="font-medium text-neutral-500">✅ on track</span>`;
+    return `<span class="font-semibold text-neutral-500">✅ on track</span>`;
   } else if (delta > 0) {
-    return `<span class="font-medium text-green-500">▲ ${Math.abs(Math.round(delta))}</span> above goal`;
+    return `<span class="font-semibold text-green-500">▲ ${Math.abs(Math.round(delta))}</span> above goal`;
   } else {
-    return `<span class="font-medium text-red-500">▼ ${Math.abs(Math.round(delta))}</span> behind goal`;
+    return `<span class="font-semibold text-red-500">▼ ${Math.abs(Math.round(delta))}</span> behind goal`;
   }
 };
 
