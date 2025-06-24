@@ -1,41 +1,41 @@
 <template>
-  <div class="bg-neutral-800 h-2 mb-5 w-full relative rounded-md overflow-hidden">
-    <div 
-      class="bg-neutral-200 rounded-md z-10 absolute h-full" 
-      :style="{ width: percentageOfCount(counter) + '%' }">
-    </div>
-    <div 
-      class="bg-red-500 h-full z-0 absolute rounded-md" 
+  <div
+    class="bg-neutral-800 h-2 mb-5 w-full relative rounded-md overflow-hidden"
+  >
+    <div
+      class="bg-neutral-200 rounded-md z-10 absolute h-full"
+      :style="{ width: percentageOfCount(counter) + '%' }"
+    ></div>
+    <div
+      class="bg-red-500 h-full z-0 absolute rounded-md"
       :style="{
         width: percentageOfDaysPassed(counter) + '%',
         left: 0,
-      }">
-    </div>
-    <div 
-      class="bg-green-500 h-full z-20 absolute rounded-r-md" 
+      }"
+    ></div>
+    <div
+      class="bg-green-500 h-full z-20 absolute rounded-r-md"
       :style="{
-        width: percentageOfCount(counter) - percentageOfDaysPassed(counter) + '%',
+        width:
+          percentageOfCount(counter) - percentageOfDaysPassed(counter) + '%',
         left: percentageOfDaysPassed(counter) + '%',
-      }">
-    </div>
-  </div>  
-  <p 
-    class="text-neutral-500"
-    :class="getStatus(counter).class"
-  >
+      }"
+    ></div>
+  </div>
+  <p class="text-neutral-500" :class="getStatus(counter).class">
     {{ getStatus(counter).text }}
   </p>
 </template>
 
 <script setup lang="ts">
-import type { Counter } from '@/types';
+import type { Counter } from "@/types";
 
 defineProps<{
   counter: Counter;
 }>();
 
 const percentageOfCount = (counter: Counter) => {
-  return (counter.count / (counter.target ?? 0) ) * 100;
+  return (counter.count / (counter.target ?? 0)) * 100;
 };
 
 const percentageOfDaysPassed = (counter: Counter) => {
@@ -46,14 +46,18 @@ const getDurationInDays = (counter: Counter) => {
   const startDate = new Date(counter.startDate);
   const targetDate = new Date(counter.targetDate);
   const millisecondsPerDay = 24 * 60 * 60 * 1000;
-  return Math.floor((targetDate.getTime() - startDate.getTime()) / millisecondsPerDay);
-}
+  return Math.floor(
+    (targetDate.getTime() - startDate.getTime()) / millisecondsPerDay
+  );
+};
 
 const getDaysPassed = (counter: Counter) => {
   const currentDate = new Date();
   const startOfChallenge = new Date(counter.startDate);
   const millisecondsPerDay = 24 * 60 * 60 * 1000;
-  const daysPassed = Math.floor((currentDate.getTime() - startOfChallenge.getTime()) / millisecondsPerDay);
+  const daysPassed = Math.floor(
+    (currentDate.getTime() - startOfChallenge.getTime()) / millisecondsPerDay
+  );
   return daysPassed;
 };
 
@@ -61,18 +65,18 @@ const getStatus = (counter: Counter) => {
   // If the counter's start date is today
   if (counter.startDate === new Date().toISOString().slice(0, 10)) {
     return {
-      text: 'Enjoy the Journey 🚀'
+      text: "Enjoy the Journey 🚀",
     };
   }
   if (percentageOfCount(counter) >= percentageOfDaysPassed(counter)) {
     return {
       text: "You're on Track ✓",
-      class: 'text-green-700',
+      class: "text-green-700",
     };
   } else {
     return {
       text: "⌁ You're Falling Behind ⌁",
-      class: 'text-red-800',
+      class: "text-red-800",
     };
   }
 };
