@@ -2,42 +2,33 @@
   <div
     ref="counterRef"
     class="flex w-full flex-col items-center justify-between text-neutral-200 p-4 pb-14 lg:p-64 relative rounded-xl"
-    :class="[isFinished(counter) ? 'bg-green-800 ' : '']"
+    :class="[isFinished(counter) && 'bg-green-800 ']"
   >
     <ButtonDelete
       @delete="$emit('delete', counter.id)"
       :isFinished="isFinished(counter)"
     />
     <h1 class="text-xl mb-5">
-      {{ isFinished(counter) ? "🎉🎉🎉" : counter.title }}
+      {{ counter.title }}
     </h1>
     <p
       class="flex flex-col font-bold text-white text-8xl justify-center items-center my-10"
     >
       {{ counter.count }}
     </p>
-    <ProgressBar v-if="!isFinished(counter)" :counter="counter" />
+    <ProgressBar :counter="counter" />
     <div class="flex flex-wrap gap-3 mt-8 text-xl font-normal text-neutral-300">
-      <span
-        v-if="!isFinished(counter)"
-        class="bg-neutral-800 p-2 rounded-full px-4"
-      >
+      <span class="bg-neutral-800 p-2 rounded-full px-4">
         🎯
         <span class="font-semibold">{{ counter.target }}</span>
       </span>
 
-      <span
-        v-if="!isFinished(counter)"
-        class="bg-neutral-800 p-2 rounded-full px-4"
-      >
+      <span class="bg-neutral-800 p-2 rounded-full px-4">
         ⛳️
         <span class="font-semibold">{{ getDaysLeft(counter) }}d</span> left
       </span>
 
-      <span
-        v-if="!isFinished(counter)"
-        class="bg-neutral-800 p-2 rounded-full px-4"
-      >
+      <span class="bg-neutral-800 p-2 rounded-full px-4">
         <span v-html="getDelta(counter)"></span>
       </span>
     </div>

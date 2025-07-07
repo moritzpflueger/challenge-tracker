@@ -13,7 +13,6 @@ export const useCounterStore = defineStore("counter", () => {
 
   const increment = (counter: Counter, customStep = false) => {
     if (!counter.target) counter.target = 0;
-    if (counter.count >= counter.target) return;
     customStep ? (counter.count += 5) : counter.count++;
     persistToLocalStorage();
   };
